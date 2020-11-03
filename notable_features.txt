@@ -1,0 +1,16 @@
+1. A user should be able to sort, filter, search amongst all products available, and explore different categories/segments as possible
+2. A user must be able to add items to checkout and see the current items.
+3. A REGISTERED user must be able to place an order
+4. A REGISTERED user must be able to track the progress of his order through different stages
+5. A REGISTERED user must be able to view his past transactions.
+
+
+optional features:
+1. A user SHOULD have a choice of the store to pick-up from
+2. A user SHOULD have an option on how he/she pays for the products
+3. Tracking system for vendors to keep track of pending orders
+4. Notification system for users
+
+at some point, i guess:
+1. segment users based on their purchases and browsing history
+2. 

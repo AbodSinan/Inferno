@@ -1,0 +1,39 @@
+Models
+
+USER/UNAUTH_USER: A model to store the token of the user, if he/she is not logged in, the user will be able to explore products and the website in general
+
+CUSTOMER/AUTH_USER: A model used to store the information of a SignedUp user, this will include the email/username, password, phone-no. Customers/AuthUsers will be able to buy
+    products and manage his/her account
+
+PAYMENT_METHOD: A model that stores 
+
+PRODUCTS: A model that represents a certain product that will be sold in the website
+
+STYLES: stores different colors/designs/etc. of a product
+
+VARIATION: stores the available variation of the product
+
+*NOTE: EITHER STYLES OR VARIATION SHOULD STORE THE PRICE (FIGURING IT SHOULD be STYLES)
+Example: category(shirt) -> product (v-neck) -> style (long sleeve) -> variation (blue) + variation (large)
+
+brand: a model to store a specific brand of the product
+
+SEGMENTATION: handles the segmentation of products (male/female/kids)
+
+CATEGORIES: stores the category of a certain product
+
+COLLECTIONS: stores certain collections of different products, will be used for recommendations
+
+DISCOUNTS: admin-side discount on a singular or a plethora of products, can be linked to a single one of brands/segmentation/category/collection/styles or a mixture of two or more
+
+STORES: a model to monitor the location and inventory of a given store
+
+TRANSACTION: stores information about the products bought, which customers bought them, the price, time, etc. will also contain several stages (PENDING, SENT, COMPLETED, READY, etc.)
+
+**OPTIONALS (Things That I'm not sure fit somewhere)
+
+SEASONALS: links products to seasons or similar variables
+
+VOUCHERS/REDEEMAbLES: stores information about a discount applied to a single user or a group of AuthUsers
+
+USER_GROUP: stores meta-user information based on their purchases and (muahaha) their browsing patterns
