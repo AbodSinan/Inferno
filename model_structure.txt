@@ -8,7 +8,6 @@ CUSTOMER/AUTH_USER: A model used to store the information of a SignedUp user, th
 PAYMENT_METHOD: A model that stores 
 
 PRODUCTS: A model that represents a certain product that will be sold in the website
-
 STYLES: stores different colors/designs/etc. of a product
 
 VARIATION: stores the available variation of the product
