@@ -1,0 +1,19 @@
+EmailVerification
+
+1. User creates an account (see models/user for fields)
+2. An unverified account obj is created
+3. An EmailVerification obj is created, containing information about user, email, and code.
+4. An Email is sent, containing code.
+5. User adds code, check against the stored code
+6. Verify user
+
+OR
+
+1. User creates an account
+2. An account obj is created
+3. An EmailVerification obj is created, linked to user and has a unique UUID
+4. uuid is sent by email
+5. user clicks link, account activates (will require a certain endpoint).
+
+PhoneVerification:
+FOR LATER

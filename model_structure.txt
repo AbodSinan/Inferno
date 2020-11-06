@@ -19,7 +19,7 @@ brand: a model to store a specific brand of the product
 
 SEGMENTATION: handles the segmentation of products (male/female/kids)
 
-CATEGORIES: stores the category of a certain product
+CATEGORIES: stores the category of a certain product (shoes/sedans/carpets)
 
 COLLECTIONS: stores certain collections of different products, will be used for recommendations
 
