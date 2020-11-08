@@ -1,7 +1,9 @@
 import Sequelize from 'sequelize';
-import Conn from './db';
+import _ from 'lodash';
+import Faker from 'faker';
+import Db from './db';
 
-export const Product = Conn.define('product', {
+export const Product = Db.define('product', {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -12,7 +14,7 @@ export const Product = Conn.define('product', {
   },
 });
 
-export const ProductCategory = Conn.define('category', {
+export const ProductCategory = Db.define('productCategory', {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -22,4 +24,19 @@ export const ProductCategory = Conn.define('category', {
   }
 });
 
+// Relationships
 ProductCategory.hasMany(Product);
+Product.belongsTo(ProductCategory);
+
+// Create 10 categories containing a product
+Db.sync({ force: true }).then(() => {
+  _.times(10, () => ProductCategory.create({
+    name: Faker.name.firstName(),
+    order: Faker.random.number(),
+  }).then((productCategory) => {
+    _.times(10, () => productCategory.createProduct({
+      name: Faker.company.companyName(),
+      description: Faker.lorem.paragraph(),
+    }));
+  }));
+});

@@ -9,4 +9,6 @@ export const Brand = Conn.define('brand', {
   }
 });
 
+// Relationships
 Brand.hasMany(Product);
+Product.belongsTo(Brand);

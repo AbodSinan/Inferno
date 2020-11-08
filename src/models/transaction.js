@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
+
 import Conn from './db';
 import * as settings from '../settings';
-
 import Product from './product';
 import ProductVariation from './variations';
 

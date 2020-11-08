@@ -1,11 +1,7 @@
 import Sequelize from 'sequelize';
 
-export const Conn = new Sequelize(
-  'relay',
-  'postgres',
-  'postgres',
-  {
-    dialect: 'postgres',
-    host: 'localhost',
-  }
-);
+import * as settings from '../settings';
+
+export const Conn = new Sequelize(settings.connectionString);
+
+export default Conn;

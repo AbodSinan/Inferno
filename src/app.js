@@ -1,17 +1,17 @@
-import logger from 'morgan';
 import express from 'express';
-import cookieParser from 'cookie-parser';
-import indexRouter from './routes/index';
+import { graphqlHTTP } from 'express-graphql';
+import Schema from './schema/root';
+
+// Config
+const APP_PORT = 3000;
 
 const app = express();
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
-app.use('/v1', indexRouter);
-app.use((err, req, res, next) => {
-    res.status(400).json({ error: err.stack });
-  });
-  
+app.use('/graphql', graphqlHTTP({
+  schema: Schema,
+  pretty: true,
+  graphiql: true,
+}));
 
-export default app;
+app.listen(APP_PORT, () => {
+  console.log(`App listening on port ${APP_PORT}`);
+});
