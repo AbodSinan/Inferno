@@ -67,4 +67,4 @@ export const ProductDiscount = Conn.define('productDiscount', {
 
 Discount.belongsToMany(Brand, { through: 'BrandDiscount' });
 Discount.belongsToMany(Segment, { through: 'SegmentDiscount' });
-Discount.belongsToMany(Product, { through: ProductDiscount});
+Discount.belongsToMany(Product, { through: ProductDiscount });

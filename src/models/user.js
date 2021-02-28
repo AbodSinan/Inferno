@@ -1,4 +1,5 @@
 import Sequalize from 'sequelize';
+import Faker from 'faker';
 import Conn from './db';
 
 export const Customer = Conn.define('customer', {
@@ -6,6 +7,9 @@ export const Customer = Conn.define('customer', {
     type: Sequalize.STRING,
     allowNull: false,
     unique: true,
+    valiate: {
+      isEmail: true,
+    }
   },
   firstName: {
     type: Sequalize.STRING,
@@ -25,6 +29,18 @@ export const Customer = Conn.define('customer', {
   },
   isVerified: {
     type: Sequalize.BOOLEAN,
-    default: false,
+    defaultValue: false,
   }
+});
+
+Conn.sync({ force: true }).then(() => {
+  _.times(10, () => ProductCategory.create({
+    name: Faker.name.firstName(),
+    order: Faker.random.number(),
+  }).then((productCategory) => {
+    _.times(10, () => productCategory.createProduct({
+      name: Faker.company.companyName(),
+      description: Faker.lorem.paragraph(),
+    }));
+  }));
 });
