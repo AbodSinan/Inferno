@@ -3,7 +3,7 @@ import Sequelize from 'sequelize';
 import Conn from './db';
 import * as settings from '../settings';
 import Product from './product';
-import ProductVariation from './variations';
+import { Variation } from './variation';
 
 export const Transaction = Conn.define('transaction', {
   uuid: {
@@ -23,5 +23,5 @@ export const TransactionProduct = Conn.define('transactionProduct', {
   }
 });
 
-TransactionProduct.belongsTo(ProductVariation);
+TransactionProduct.belongsTo(Variation);
 Transaction.hasMany(Product, { through: TransactionProduct });

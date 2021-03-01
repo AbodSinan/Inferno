@@ -5,6 +5,8 @@ import {
 } from 'graphql';
 import { GraphQLList } from 'graphql/type/definition';
 
+import { Brand } from './brand';
+
 export const Product = new GraphQLObjectType({
   name: 'Product',
   description: 'A product of a kind, I guess',
@@ -32,6 +34,12 @@ export const Product = new GraphQLObjectType({
         type: ProductCategory,
         resolve(product) {
           return product.getProductCategory();
+        }
+      },
+      brand: {
+        type: Brand,
+        resolve(product) {
+          return product.getBrand();
         }
       }
     };

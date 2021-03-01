@@ -3,6 +3,8 @@ import _ from 'lodash';
 import Faker from 'faker';
 import Db from './db';
 
+import { Variation } from './variation';
+
 export const Product = Db.define('product', {
   name: {
     type: Sequelize.STRING,
@@ -27,6 +29,8 @@ export const ProductCategory = Db.define('productCategory', {
 // Relationships
 ProductCategory.hasMany(Product);
 Product.belongsTo(ProductCategory);
+Product.hasMany(Variation);
+Variation.belongsTo(Product);
 
 // Create 10 categories containing a product
 Db.sync({ force: true }).then(() => {

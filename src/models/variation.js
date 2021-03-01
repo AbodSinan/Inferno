@@ -10,7 +10,11 @@ import Conn from './db';
 export const Variation = Conn.define('variation', {
   name: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+  },
+  priceDelta: {
+    type: Sequelize.DECIMAL,
+    allowNull: true,
   },
   params: {
     type: Sequelize.JSON,
@@ -24,3 +28,7 @@ export const VariationType = Conn.define('variationType', {
     allowNull: false
   }
 });
+
+// Relationships
+VariationType.hasMany(Variation);
+Variation.belongsTo(VariationType);
